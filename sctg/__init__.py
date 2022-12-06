@@ -26,7 +26,7 @@ nc    = Notify    ()
 CURRENT_PATH     = os.path.dirname(__file__)
 CRITICAL_ICON    = f'{CURRENT_PATH}/icons/5124639571624510123.svg'
 SCTG_PATH        = ''
-KEY_PRINT_SCREEN = keyboard.Key.f2#print_screen
+KEY_PRINT_SCREEN = keyboard.Key.print_screen #personally i like to use f2 too
 
 def send_notification(title, message='', urgency='normal', icon=''):
     nc.urgency = urgency
