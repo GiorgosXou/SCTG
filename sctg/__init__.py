@@ -113,12 +113,9 @@ def screenshot(area=False, save=True, silent=False): # https://stackoverflow.com
 ctrl = False # Because for some reason hotkey doesnt seem to work lol
 shift  = False 
 def on_key_release(key):
-    if key == keyboard.Key.ctrl: 
-        global ctrl
-        ctrl = False
-    if key == keyboard.Key.shift:
-        global shift
-        shift = False
+    global ctrl, shift
+    ctrl  = False
+    shift = False
 
 
 
@@ -128,8 +125,8 @@ def on_key_press(key):
     elif key == KEY_PRINT_SCREEN and ctrl           : screenshot(area=True            )
     elif key == KEY_PRINT_SCREEN and shift          : screenshot(save=False           ) 
     elif key == KEY_PRINT_SCREEN                    : screenshot()
-    elif key == keyboard.Key.ctrl                   : ctrl = True
-    elif key == keyboard.Key.shift                  : shift  = True
+    elif key == keyboard.Key.ctrl                   : ctrl  = True
+    elif key == keyboard.Key.shift                  : shift = True
 
 
 def main():
