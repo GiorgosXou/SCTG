@@ -38,7 +38,7 @@ exiftool * -UserComment | grep -i YouTube
 Tested, on Arch linux with i3 btw 🤓
 
 # Disclaimer
-This is just a crappy implimentation of a nice idea that i had. Don't get anything at this alpha version too seriously
+This is just a crappy implementation of a nice idea that i had. Don't get anything at this alpha version too seriously
 
 # Outro
 If you use linux you might need to install libnotify too. here's a silly screenshot example:
