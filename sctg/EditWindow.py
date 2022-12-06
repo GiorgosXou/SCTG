@@ -57,7 +57,6 @@ class EditWindow(Tk):
 
     def abort_win(self, event):
         if not sctg.globals.input_frame_exists:
-            print(sctg.globals.InputFrmTXT)
             self.image = None
             self.quit()
         sctg.globals.input_frame_exists = False
