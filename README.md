@@ -41,6 +41,6 @@ Tested, on Arch linux with i3 btw 🤓
 This is just a crappy implementation of a nice idea that i had. Don't get anything at this alpha version too seriously
 
 # Outro
-If you use linux you might need to install libnotify too. here's a silly screenshot example, have a look up right:
+If you use linux you might need to install libnotify too. here's a silly screenshot example, have a look up right *(although this specific screenshot doesn't utilize the yolo algorithm there)*:
 
 <img title="a title" alt="Alt text" src="./sctg_2022-12-06 02:58:31.587667.jpg">
