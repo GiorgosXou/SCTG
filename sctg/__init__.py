@@ -68,7 +68,7 @@ def detect(image): # 1 -> references from where i stole the code at the bottom o
                 class_ids.append(class_id)
     idxs = cv2.dnn.NMSBoxes(boxes, confidences, SCORE_THRESHOLD, IOU_THRESHOLD) # perform the non maximum suppression given the scores defined before
     if len(idxs) > 0:
-        objs.extend(['yolov4', len(idxs)])
+        objs.extend(['yolov7', len(idxs)])
         for i in idxs.flatten(): # loop over the indexes we are keeping
             objs.extend([labels[class_ids[i]], format(confidences[i], '.3f')])
     return objs 
