@@ -24,7 +24,9 @@ class InputFrame(tk.Frame):
 
 
     def set_value(self,event=None):
-        sctg.globals.InputFrmTXT = self.myEntryBox.get()
+        txt = self.myEntryBox.get().strip() 
+        if not txt == '':
+            sctg.globals.InputFrmTXT = 'extra_tags ' + txt # i should have had a len of split here but whatever now
         if event == None : sctg.globals.input_frame_exists=False # lolwhatam i doing 
         self.destroy()
 
