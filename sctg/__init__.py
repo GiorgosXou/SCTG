@@ -107,8 +107,6 @@ def screenshot(area=False, save=True, silent=False): # https://stackoverflow.com
     copy_image(f'{SCTG_PATH}/{name}')
     if not save: # lol whatever
         os.remove(f'{SCTG_PATH}/{name}')
-
-
     if not silent: send_notification(f"{name}", tags) 
 
 
