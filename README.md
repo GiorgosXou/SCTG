@@ -1,5 +1,5 @@
 # SCTG - SCREENSHOT TAG 
-A cross-platform YOLO enhanced, tagging, screenshot app that tags\\stores detected objects within image's EXIF's UserComment entry. `ALPHA VERSION 0.1.0`
+A cross-platform [YOLO](https://github.com/AlexeyAB/darknet) enhanced, tagging, screenshot app that tags\\stores detected objects within image's EXIF's UserComment entry. `ALPHA VERSION 0.1.0`
 
 # Setup
 ```terminal
