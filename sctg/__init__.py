@@ -39,12 +39,12 @@ def send_notification(title, message='', urgency='normal', icon=''):
 CONFIDENCE      = 0.5
 SCORE_THRESHOLD = 0.5
 IOU_THRESHOLD   = 0.5
+config_path     = f"{CURRENT_PATH}/nn_files/yolov7-tiny.cfg"                           # the neural network configuration
+weights_path    = f"{CURRENT_PATH}/nn_files/yolov7-tiny.weights"                       # the YOLO net weights file
+labels          = open(f"{CURRENT_PATH}/nn_files/coco.names").read().strip().split("\n") # loading all the class labels (objects)
+net             = cv2.dnn.readNetFromDarknet(config_path, weights_path) # load the YOLO network
 
 def detect(image): # 1 -> references from where i stole the code at the bottom of the file
-    config_path  = f"{CURRENT_PATH}/nn_files/yolov7-tiny.cfg"                           # the neural network configuration
-    weights_path = f"{CURRENT_PATH}/nn_files/yolov7-tiny.weights"                       # the YOLO net weights file
-    labels       = open(f"{CURRENT_PATH}/nn_files/coco.names").read().strip().split("\n") # loading all the class labels (objects)
-    net  = cv2.dnn.readNetFromDarknet(config_path, weights_path) # load the YOLO network
     h, w = image.shape[:2]
     blob = cv2.dnn.blobFromImage(image, 1/255.0, (416, 416), swapRB=True, crop=False) # create 4D blob
     net.setInput(blob) # sets the blob as the input of the network
