@@ -126,9 +126,12 @@ def on_key_release(key):
 
 def on_key_press(key):
     global ctrl, shift
-    if key == KEY_PRINT_SCREEN:screenshot(area=ctrl, save=shift)
-    elif (key == keyboard.Key.ctrl ): ctrl  = True
-    elif (key == keyboard.Key.shift): shift = True
+    if   key == KEY_PRINT_SCREEN and ctrl and shift : screenshot(area=True, save=False)
+    elif key == KEY_PRINT_SCREEN and ctrl           : screenshot(area=True            )
+    elif key == KEY_PRINT_SCREEN and shift          : screenshot(save=False           ) 
+    elif key == KEY_PRINT_SCREEN                    : screenshot()
+    elif key == keyboard.Key.ctrl                   : ctrl  = True
+    elif key == keyboard.Key.shift                  : shift = True
 
 
 def main():
