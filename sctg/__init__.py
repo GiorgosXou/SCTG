@@ -13,6 +13,7 @@ import traceback
 import sctg.globals
 from   pynput.mouse import Controller
 from   notifypy     import Notify     
+from   platform     import system
 from   pynput       import keyboard
 from   PIL          import Image
 from   .cpimg       import copy_image
@@ -26,6 +27,7 @@ nc    = Notify    ()
 CURRENT_PATH     = os.path.dirname(__file__)
 CRITICAL_ICON    = f'{CURRENT_PATH}/icons/5124639571624510123.svg'
 SCTG_PATH        = ''
+TMP_PATH         = '/dev/shm/' if system() == 'Linux' else ''
 KEY_PRINT_SCREEN = keyboard.Key.print_screen #personally i like to use f2 too
 
 def send_notification(title, message='', urgency='normal', icon=''):
@@ -103,10 +105,13 @@ def screenshot(area=False, save=True, silent=False): # https://stackoverflow.com
     exif_dict = {"0th": {}, "Exif": exif_ifd, "1st": {}, "thumbnail": None, "GPS": {}}
     img       = Image.fromarray(image)
     exif_dat  = piexif.dump(exif_dict)
-    img.save(f'{SCTG_PATH}/{name}',  exif=exif_dat) # exiftool * -UserComment | grep -i YouTube
-    copy_image(f'{SCTG_PATH}/{name}')
     if not save: # lol whatever
-        os.remove(f'{SCTG_PATH}/{name}')
+        img.save(f'{TMP_PATH}/{name}',  exif=exif_dat)
+        copy_image(f'{TMP_PATH}/{name}')
+        os.remove(f'{TMP_PATH}/{name}')
+    else:
+        img.save(f'{SCTG_PATH}/{name}',  exif=exif_dat) # exiftool -filename -UserComment -r -if '$UserComment =~ /YouTube/i' ~/my_path/*
+        copy_image(f'{SCTG_PATH}/{name}')
     if not silent: send_notification(f"{name}", tags) 
 
 
